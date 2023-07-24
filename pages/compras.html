@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="icon" type="image/png" href="../assets/img/logo.png">
+    
+    <title>Carrito de compras</title>
+  </head>
+  <body class="container-fluid fondo">
+    <div class="borroso">
+        <header class="sticky-top">
+            <nav class="navbar slide  navbar-expand-lg navbar-light  colorNav text-white">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/img/logo.png" alt="logo cafe" width="60" height="48">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justificar w-100">
+                      <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="../index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="./pages/nosotros.html">Nosotros</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-white" href="./pages/contacto.html">Contacto</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Productos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="#">Tienda</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <div class="carritoFlex ocultar">
+                <h2><span id="cantidadProductos">0</span></h2>
+                <img id="carrito" src="../assets/img/carrito.png" alt="Carrito de compras" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            </div>
+          </header>
+             <!-- carrito con Bootstrap-->
+    <section class="carritoGrid">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+          <h2 class="tituloCarrito">Productos en carrito:</h2>
+            <button id="btnSeguirComprando" type="button" class="btn btn-success" data-bs-dismiss="offcanvas"> Seguir Comprando </button>
+      </div>
+      <div class="offcanvas-body ocultar" id="carritoMostrar">
+      </div>
+      <div class="ordenTotal">
+        <h3 class="total ocultar">Total: $ <span id="totalCarrito"></span></h3>
+      </div>
+        <div class="botonesCarrito2 ocultar">
+          <a href="#" id="botonComprar" class="btn btn-success btnComprar ocultar">PAGAR</a>
+          <img src="../assets/img/vaciar.png" id="vaciar" alt="">
+        </div>
+      </div>
+      </section>
+      </section>
+      <main class="container-fluid cardMain">
+        <h1 class="centrar">Nuestros Productos</h1>
+        <!-- Seccion de formularios de busqueda por descripción, ordenar según precios y boton de carrito -->
+        <!-- formularios de busqueda por descripción -->
+        <section class="botonesHtml">
+            <div class="buscardorOrdenar">
+                <form class="container" id="formBuscar">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Busca por..</span>
+                        <input type="text" class="form-control" id="inputBuscar" placeholder="Descripcion" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                <!-- Ordenar por precios  -->
+                <select class="form-select filtroPorPrecio " aria-label="Default select example" id="seleccionar">
+                    <option value="defecto">Ordenar por..</option>
+                    <option value="precioMenor">Precio Menor</option>
+                    <option value="precioMayor">Precio Mayor</option>
+                </select>
+               </form>
+            </div>  
+        <!-- grid para dividir el main en dos Filtos y catalogo
+        <div class="grid-container borroso">
+            <-- filtros
+            <section class="seccionFiltros">
+                <h4>Selecciona tu tipo preferido</h4>
+                <div id="filtrosMarca"><div>
+            <input type="checkbox" name="check" id="check">
+            <label for="check">Capsulas Nespresso</label>
+        </div>
+        <div>
+            <input type="checkbox" name="check" id="check">
+            <label for="check">Capsulas Dolce Gusto</label>
+        </div>
+        <div>
+            <input type="checkbox" name="check" id="check">
+            <label for="check">Café en Granos</label>
+        </div>
+        <div>
+            <input type="checkbox" name="check" id="check">
+            <label for="check">Cafe Molido</label>
+        </div>
+        <div>
+            <input type="checkbox" name="check" id="check">
+            <label for="check">Accesorios</label>
+        </div>
+        </div>
+      </section -->
+            <!-- catalogo -->
+            <section id="seccionCatalogo">
+                <div id="divCatalogo" class="row">
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/Frontal-Aluminio-Lungo-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dolce Gusto - Lungo</h4>
+                            <p><b>Marca:</b> Nespresso</p>
+                            <p><b>Total disponibles:</b> 23</p>
+                            <p><b>Precio: $3400</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA114147">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/04/Frontal-Aluminio-Caramelo-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Caramel </h4>
+                            <p><b>Marca:</b> Nespresso</p>
+                            <p><b>Total disponibles:</b> 50</p>
+                            <p><b>Precio: $ 8560</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA127177">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/12/Frontal-Aluminio-Chocolate-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Chocolate</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b> 1</p>
+                            <p><b>Precio: $ 67154</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA116929">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/Frontal-Aluminio-Brasil-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Ed. Brasil</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>50</p>
+                            <p><b>Precio: $ 6154</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA1125809">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/12/Frontal-Aluminio-Vainilla-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Ed. Vainilla</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>8</p>
+                            <p><b>Precio: $ 2154</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA112583">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/frontal-aluminio-colombia-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Ed. Colombia</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>0</p>
+                            <p><b>Precio: $ 7376</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA1383754068">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/Frontal-Aluminio-Intenso-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Intenso</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b> 2</p>
+                            <p><b>Precio: $ 1855</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA110495">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/Frontal-Aluminio-Ristretto-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Ristretto</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>50</p>
+                            <p><b>Precio: $ 6884</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA112582">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/Frontal-Aluminio-Espresso-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespresso - Espresso</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>60</p>
+                            <p><b>Precio: $ 3400</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA795504">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2020/07/frontal-aluminio-descafeinado-Nespresso-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Nespreso - Descafeinado</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b> 5</p>
+                            <p><b>Precio: $ 5460</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA60595">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/03/Dolce-Gusto-Capuccino-300x300.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dolce Gusto - Cappucino</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>60</p>
+                            <p><b>Precio: $ 4500</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA79551">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/03/Dolce-Gusto-Chocolate-300x300.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dolce Gusto - Chocolate</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>12</p>
+                            <p><b>Precio: $ 3540</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA126418">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/03/Dolce-Gusto-Lungo-300x300.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dolce Gusto - Lungo</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b> 25</p>
+                            <p><b>Precio: $ 1495</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA110937">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/03/Dolce-Gusto-Leche-300x300.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dolce Gusto - Lungo</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>1</p>
+                            <p><b>Precio: $ 1670</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA126413">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Dolce-Gusto-Ristretto-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Dulce Gusto - Lungo</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>0</p>
+                            <p><b>Precio: $ 2000</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA13036">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/04/Arma-Pack-5-Dolce-Gusto-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Kit 5 Dolce Gusto </h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>60</p>
+                            <p><b>Precio: $ 31327</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA872890">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/04/Arma-Pack-3-Dolce-Gusto-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>kit pack 3 Dolce Gusto</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>32</p>
+                            <p><b>Precio: $ 23530</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA136465">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-French-Roast-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en granos - Francia</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>5</p>
+                            <p><b>Precio: $ 9495</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA1122684">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Descafeinado-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en granos - Descafeinado</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>23</p>
+                            <p><b>Precio: $ 12242</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA11553">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Italian-Roast-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Xafe en granos - Italia</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>56</p>
+                            <p><b>Precio: $ 9202</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA130365">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Colombia-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en granos - Colombia</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>8</p>
+                            <p><b>Precio: $ 10594</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA1392214">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Brasil-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en granos - Brasil</h4>
+                            <p><b>Marca:</b>Viaggio</p>
+                            <p><b>Total disponibles:</b> 2</p>
+                            <p><b>Precio: $ 14353</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA13621">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Etiopia-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en grano - Etiopia</h4>
+                            <p><b>Marca:</b>Viaggio</p>
+                            <p><b>Total disponibles:</b>8</p>
+                            <p><b>Precio: $ 6195</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA128757">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2021/05/Cafe-en-Grano-Tueste-Medio-300x300.jpeg">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafe en granos Tuesta Medium</h4>
+                            <p><b>Marca:</b> Viaggio</p>
+                            <p><b>Total disponibles:</b>70</p>
+                            <p><b>Precio: $ 4600</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA110059">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/06/Balanza-Timemore-Basic-Plus-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Balanza digital</h4>
+                            <p><b>Marca:</b>Timemore</p>
+                            <p><b>Total disponibles:</b>23</p>
+                            <p><b>Precio: $ 8308</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA130053">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/Organizador-de-capsulas-cajon-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Organizador de Capsulas</h4>
+                            <p><b>Marca:</b>Cajon</p>
+                            <p><b>Total disponibles:</b>1</p>
+                            <p><b>Precio: $ 21000</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA130363">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/11/Descalcificador-de-Cafetera-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Kit Descalcificador</h4>
+                            <p><b>Marca:</b> Dolce</p>
+                            <p><b>Total disponibles:</b>33</p>
+                            <p><b>Precio: $ 12000</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA111848">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/Pesa-Frontal-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Pesa Frontal</h4>
+                            <p><b>Marca:</b>Leonard</p>
+                            <p><b>Total disponibles:</b>8</p>
+                            <p><b>Precio: $ 9314</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA110125">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/11/Cafetera-Italiana-Bialetti-MOKA-Express-6-Tazas-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafetera Italiana MOKA</h4>
+                            <p><b>Marca:</b> Bial</p>
+                            <p><b>Total disponibles:</b>4</p>
+                            <p><b>Precio: $ 16799</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA117997">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/Molinillo-de-cafe-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Molinillo de Cafe</h4>
+                            <p><b>Marca:</b> SX</p>
+                            <p><b>Total disponibles:</b> 0</p>
+                            <p><b>Precio: $ 8900</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA114152">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/06/Timemore-Prensa-Francesa-U-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Prensa Francesa</h4>
+                            <p><b>Marca:</b> Timmemore</p>
+                            <p><b>Total disponibles:</b>23</p>
+                            <p><b>Precio: $ 571894</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA110571">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/11/Cafetera-Prensa-Francesa-Bialetti-Signature-350-ML-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Prensa Francesa</h4>
+                            <p><b>Marca:</b> Fucold</p>
+                            <p><b>Total disponibles:</b> 5</p>
+                            <p><b>Precio: $ 56000</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA1303673">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/Porta-40-Capsulas-para-Nespresso-1-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Capsulas para Nespresso</h4>
+                            <p><b>Marca:</b> XS</p>
+                            <p><b>Total disponibles:</b>72</p>
+                            <p><b>Precio: $ 143534</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA11211">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/cafetera-de-goteo-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Cafetera a Goteo</h4>
+                            <p><b>Marca:</b> Dolce</p>
+                            <p><b>Total disponibles:</b> 8</p>
+                            <p><b>Precio: $ 14600</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA136544">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card mb-3" style="max-width:700px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img class="imagenesCatalogo" src="https://cdn5885.templcdn.com/wp-content/uploads/2022/08/Porta-capsulas-Nespresso-40-capsulas-Vidrio-300x300.webp">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h4>Porta Capsulas de vidrio</h4>
+                            <p><b>Marca:</b> Newen</p>
+                            <p><b>Total disponibles:</b>6</p>
+                            <p><b>Precio: $ 4390</b></p>
+                            <div>
+                                <a href="#" class="btn btn-success botonAgregar" data-id="MLA114104">Agregar al Carrito</a>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+      <section>
+        <h2>Carrito</h2>
+        <div id="carrito">
+          <!--Prodcutos del carrito-->
+        </div>
+      </section>
+</body>
+    <footer class="colorNav text-white piePagina borroso">
+        <div class="row">
+          <div class="col-4 alinear">
+            <a href=""><i class="ri-instagram-line icon"></i></a>
+    
+          </div>
+          <div class="col-4 alinear">
+            <a href=""><i class="ri-facebook-circle-line icon"></i></a>
+            
+          </div>
+          <div class="col-4 alinear">
+            <a href=""><i class="ri-whatsapp-line icon"></i></a>
+            
+          </div>
+        </div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
+</html>

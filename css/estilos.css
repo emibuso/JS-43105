@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:ital,wght@0,200;0,400;1,300&family=Roboto&family=Roboto+Mono&family=Rubik&display=swap');
+
+@keyframes float {
+    0%{
+        transform: translateY(0); /*The starting point of the animation is 0.*/
+    }
+    50%{
+        transform: translateY(-1rem); /*The middle point of the animation is -15xp. This will move the element up.*/
+    }
+    100%{
+        transform: translateY(0); /*The last point of the animation is going back to the starting state of 0.*/
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.fondo{
+    background:linear-gradient(to right,rgba(0, 0, 0, 0.642),rgba(0, 0, 0, 0.642)),  url("../assets/img/fondo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+}
+.borroso{
+    backdrop-filter: blur(5px);
+    height:100%;
+    background-size: cover;
+}
+.colorNav{
+    background-color: #463333c0;
+}
+.nav-link{
+    font-size: 1.2rem;
+}
+.justificar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;  
+}
+.principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+#carrito {
+    width: 70px;
+    height: 70px;
+    top: 140px;
+    cursor: pointer;
+}
+
+.span {
+    position: relative;
+    background-color: red;
+    border-radius: 120px;
+    padding: 5px;
+    right: -50px;
+    width: 20px;
+    top: 30px;
+    text-align: center;
+    font-size: 10px;
+    margin: px 0 0 20px;
+    color: white;
+    z-index: 1;
+}
+*{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+}
+h2 span { 
+    position: relative;
+    background-color: red;
+    border-radius: 120px;
+    padding: 5px;
+    right: -50px;
+    width: 20px;
+    top: 30px;
+    text-align: center;
+    font-size: 10px;
+    margin: px 0 0 20px;
+    color: white;
+    z-index: 1;
+} 
+
+/* Grid para acomodar el contenido del main */
+.grid-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10% ;
+    margin: 5px;
+}
+/* propiedades de imagenes de */
+.imagenesCatalogo{
+    width: fit-content;
+    height: fit-content;
+    backface-visibility: inherit;
+    max-width: 280px;
+}
+/*  Propiedades del filtrado por precio */
+.filtroPorPrecio{
+    display: flex;
+    width: 200px;
+    border-radius: 5px;
+    justify-content: center;
+}
+/* seccion del catalogo */
+#seccionCatalogo{
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+#divCatalogo {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    justify-items: center;
+    max-height: 250px;
+    margin: 0px 5px 0px 5px;
+    text-decoration: none;
+} 
+.tarjetaProductos{
+    max-width: 1200px;
+    width: 1200px;
+}
+img{
+    width: 180px;
+    height: 220px;
+}
+.botonAgregar{
+    border-radius: 10px;
+    font-weight:800;
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#vaciar {
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.botonQuitar{
+    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight:700;
+    font-style: italic;
+    margin: 0px 35px;
+}
+.botonSumar{
+    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight:700;
+    font-style: italic;
+}
+.botonRestar{
+    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight:700;
+    font-style: italic;
+}
+#cantidadDeProductos {
+    position: relative;
+    top: 50px;
+    right: 360px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.1);
+}
+.offcanvas-header{
+    display: flex;
+    flex-direction: column;
+}
+.btnComprar{
+    width: 100px;
+    align-items: center;
+    justify-items: center;
+}
+.oculto {
+    display: none;
+}
+.offcanvas-body{
+    flex-grow:0;
+}
+.offcanvas {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+.ordenTotal{
+    display: flex;
+    justify-content: center;
+}
+.total{
+    background-color: #463333c0;
+    border-style: solid;
+    border-radius: 10px;
+    font-weight: 700;
+    width: 300px;
+}
+#vaciar{
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.botonesCarrito{
+    display: flex;
+    justify-content:center;
+    margin: 10px;
+}
+.botonesCarrito2{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+    align-items:center;
+}
+.galeria{
+    width: 90%;
+}
+.carousel-item{
+   height: 70vh;
+}
+.carousel-item img{
+    height: 100%;
+    object-fit: cover;
+}
+.piePagina{
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:100px;
+    width:100%;
+}
+.alinear{
+   text-align: center;
+}
+.icon{
+    display: inline-block;
+    font-size: 2rem;
+    color: #fff;
+    animation: float infinite 4s ease-in-out ;
+}
+.ri-facebook-circle-line{
+   animation-delay: 0.5s;
+}
+
+.ri-whatsapp-line{
+  animation-delay: 1s; 
+}
+
+/*estilos de pagina de contacto */
+.contenedorMain{
+    position:relative;
+    width: 100%;
+    height: 70vh;
+    display:flex;   
+    justify-content: center;
+    align-items: center;
+    margin-top:2rem;
+  
+}
+
+.contact-box{
+    max-width: 850px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 19px 5px rgba( 0, 0, 0, 0.19 );
+
+}
+.left{
+    background: url("../assets/img/late.jpg") no-repeat center;
+    background-size: cover;
+    height: 100%;
+}
+.right{
+    padding: 25px 40px;
+}
+h2{
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+}
+h2::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color:#3a1d1d ;
+
+}
+.field{
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.184);
+    outline:none;
+    background-color: #9b8a8f;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: all 0.3s ease-in-out;
+}
+.field:hover{
+    background-color: rgba(0,0,0,0.1);
+
+}
+textarea{
+    min-height: 150px;
+}
+.btn{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #3a1d1d ;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+    background-color:#3a1d1d ;
+}
+.field:focus{
+    border: 2px solid #3a1d1d ;
+    background-color: #fff;
+}
+/*pagina nosotros*/
+.contenedorNosotros{
+    display: flex;
+    height:80vh;
+}
+
+.columna { 
+    width: 50%; 
+}
+.col-info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    min-height: 100%;
+    background:#3a1d1d;
+    background: linear-gradient(0deg,#3a1d1df6 0%,#442828f6 63%);
+    padding: 1rem 12rem 1rem 4rem;
+}
+
+.col-info p { line-height: 1.5; }
+
+.col-img {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../assets/img/late.jpg"); 
+}
+
+.titulo {
+    margin: 0 0 1.6rem;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+.titulo span {
+     color: #fff;
+     display: block;
+ }
+
+.parrafoNosotros{
+    color: rgb(213, 201, 201);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/*cuando es un celular */
+@media screen and (max-width: 768px){
+    .galeria{
+        width: 100%;
+        height:80vh;
+        display: flex;
+        align-items: center;
+    } 
+    .icon{
+        font-size: 1.5rem;
+    }
+    .piePagina{
+        height: 3rem;
+        position: absolute;
+        height: 100px;
+    }
+    /*nosotros*/
+    .col-info {
+       width:100%;
+       height: 100%;
+       padding:1rem;
+    }
+    .parrafoNosotros{
+        font-size: 1.2rem;
+        line-height: 2.0;
+    }
+    .titulo{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .titulo span{
+       display:inline;
+    }
+    .ocultar{
+        display: none;
+    }
+
+
+    /* pagina contacto*/
+    .contenedorMain{
+       padding: 20px;  
+    }
+     
+    .contact-box{
+        grid-template-columns: 1fr;
+    }
+    .left{
+        background-size: cover;
+        height: 100%;
+    }
+    .right{
+        padding: 25px 20px;
+    }
+}
+
+
+/*cuando es celular pero horizontal*/
+@media screen and (max-width:1000px) and (orientation: landscape){
+    h1{
+        font-size: 1.2rem;
+    }
+    .galeria{
+        display: flex;
+        justify-content: center;
+    } 
+    .carousel-item{
+        width:100%;
+        height: 55vh;
+    }
+    .carousel-item img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .icon{
+        font-size: 1.5rem;
+    }
+    .piePagina{
+        height: 3rem;
+        height: 100px;
+        position: absolute;
+    }
+
+}
+
