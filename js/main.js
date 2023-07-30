@@ -1,4 +1,4 @@
-// Clase molde para instrumentos
+// Clase molde para productos
 class Alimento {
     constructor(id, imagen = false, nombre, marca, precio,vendidos) {
         this.id= id;
@@ -18,7 +18,7 @@ class Carrito{
         this.totalProductos = 0;
         this.listar();
     }
-    // Método para saber si un instrumento está en el carrito
+    // Método para saber si un producto está en el carrito
     estaEnCarrito({id}){
         return this.carrito.find((Alimento) => Alimento.id===id)
     }
@@ -84,9 +84,9 @@ class Carrito{
             <b> Sub total: $ ${producto.precio * producto.cantidad} </b>
             <p> Cantidad: ${producto.cantidad}</p> 
             <div class="botonesCarrito">
-                <img src="img/menos2.png" class="botonRestar" data-id="${producto.id}" alt="">
-                <img src="img/eliminar.png" class="botonQuitar" data-id="${producto.id}" alt="">
-                <img src="img/mas2.png" class="botonSumar" data-id="${producto.id}" alt="">
+                <img src="../assets/img/menos.png" class="botonRestar" data-id="${producto.id}" alt="">
+                <img src="../assets/img/eliminar.png" class="botonQuitar" data-id="${producto.id}" alt="">
+                <img src="../assets/img/mas.png" class="botonSumar" data-id="${producto.id}" alt="">
             </div>
 
             `
@@ -141,10 +141,10 @@ class Carrito{
 }
 // variable global para productos
 let productos=[];
-const categoriaSeleccionada = "MLA1403";
+const categoriaSeleccionada = "MLA411823";
 const limiteProductos =30;
 async function apiProductosDeMercadoLibre(categoria = categoriaSeleccionada) {
-        const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?category=${categoriaSeleccionada}&limit=${limiteProductos}&offset=0');
+        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoria}&limit=${limiteProductos}&offset=0&q=cafe`);
         const api = await response.json();
         const productosMercadoLibre = api.results;
         console.log(productosMercadoLibre);
@@ -304,7 +304,7 @@ inputBuscar.addEventListener('keyup',(event)=>{
 // Cargar los resultados de la busqueda
 cargarCatalogo(resultados);
 
-// función para generar las marcas de los instrumentos del catalogo para luego realizar un filtro sobre dichas marcas
+// función para generar las marcas de los alimentos del catalogo para luego realizar un filtro sobre dichas marcas
 function filtrosMarca(productos) {
     // Array para almacenar las marcas de productos agregados
     const marcasAgregadas = [];

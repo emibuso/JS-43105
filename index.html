@@ -11,7 +11,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilos.css">
-    <link rel="icon" type="image/png" href="./assets/img/logo.png">
+    <link rel="icon" type="image/png" href="./assets/img/logo.png"
+     class="logo">
 
     <title>Tienda de Cafe</title>
   </head>
@@ -21,7 +22,7 @@
             <nav class="navbar slide  navbar-expand-lg navbar-light  colorNav text-white">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="index.html">
-                    <img src="./assets/img/logo.png" alt="logo cafe" width="60" height="48">
+                    <img src="./assets/img/logo.png" alt="logo cafe" width="40" height="28  ">
                   </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,54 +49,80 @@
                       </ul>
                     </div>
                   </div>
-                </nav>
-          </header>
-        <main class="container principal">
-          <h1 class="animate__animated animate__fadeInDown animate__slower text-white mt-2">El mejor Café del mundo</h1>
-          <div class="galeria mt-2">
-            <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel"> <!--slide es la clase que le da la transicion al slide-->
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="./assets/img/maquina.jpg" class="d-block w-100" alt="..">
-                </div>
-                <div class="carousel-item">
-                  <img src="./assets/img/late.jpg" class="d-block w-100" alt="..">
-                </div>
-                <div class="carousel-item">
-                  <img src="./assets/img/expreso.jpg" class="d-block w-100" alt="..">
-                </div>
+          <div class="carritoFlex ocultar">
+            <h2><span id="cantidadProductos">0</span></h2>
+            <img id="carrito" src="../assets/img/carrito.png" alt="Carrito de compras" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        </div>
+      </div>
+         <!-- carrito con Bootstrap-->
+<section class="carritoGrid">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+      <h2 class="tituloCarrito">Productos en carrito:</h2>
+        <button id="btnSeguirComprando" type="button" class="btn btn-success" data-bs-dismiss="offcanvas"> Seguir Comprando </button>
+  </div>
+  <div class="offcanvas-body ocultar" id="carritoMostrar">
+  </div>
+  <div class="ordenTotal">
+    <h3 class="total ocultar">Total: $ <span id="totalCarrito"></span></h3>
+  </div>
+    <div class="botonesCarrito2 ocultar">
+      <a href="#" id="botonComprar" class="btn btn-success btnComprar ocultar">PAGAR</a>
+      <img src="../assets/img/vaciar.png" id="vaciar" alt="">
+    </div>
+  </div>
+  </section>
+  </section>
+  </nav>
+  </header>
+     <main class="container principal">
+      <h1 class="animate__animated animate__fadeInDown animate__slower text-white mt-2">El mejor Café del mundo</h1>
+       <div class="galeria mt-2">
+        <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel"> <!--slide es la clase que le da la transicion al slide-->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="./assets/img/maquina.jpg" class="d-block w-100" alt="..">
+            </div>
+        <div class="carousel-item">
+              <img src="./assets/img/late.jpg" class="d-block w-100" alt="..">
+             </div>
+        <div class="carousel-item">
+              <img src="./assets/img/expreso.jpg" class="d-block w-100" alt="..">
+             </div>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
             </div>
           </div>
         </main>
-
+        <br>
+        <br>
           <footer class="colorNav text-white piePagina">
             <div class="row">
               <div class="col-4 alinear">
-                <a href=""><i class="ri-instagram-line icon"></i></a>
-                
-              </div>
+              <a href=""><i class="ri-instagram-line icon"></i></a>
+             
+            </div>
               <div class="col-4 alinear">
                 <a href=""><i class="ri-facebook-circle-line icon"></i></a>
-                
+              
               </div>
               <div class="col-4 alinear">
                 <a href=""><i class="ri-whatsapp-line icon"></i></a>
-                
+              
               </div>
             </div>
           </div>
           </footer>        
     </div>
-   
+    </div>
+   </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

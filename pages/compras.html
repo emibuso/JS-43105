@@ -11,13 +11,13 @@
     
     <title>Carrito de compras</title>
   </head>
-  <body class="container-fluid fondo">
+  <body class="container-fluid fondo borroso">
     <div class="borroso">
         <header class="sticky-top">
             <nav class="navbar slide  navbar-expand-lg navbar-light  colorNav text-white">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/img/logo.png" alt="logo cafe" width="60" height="48">
+                    <img src="../assets/img/logo.png" alt="logo cafe" width="30" height="28  ">
                   </a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,49 +28,48 @@
                         <a class="nav-link active text-white" aria-current="page" href="../index.html">Inicio</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-white" href="./pages/nosotros.html">Nosotros</a>
+                        <a class="nav-link text-white" href="./nosotros.html">Nosotros</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link text-white" href="./pages/contacto.html">Contacto</a>
+                        <a class="nav-link text-white" href="./contacto.html">Contacto</a>
                       </li>
                       <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Productos
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Tienda</a></li>
-                        </ul>
-                      </li>
-                    </ul>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Tienda</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              </nav>
-              <div class="carritoFlex ocultar">
-                <h2><span id="cantidadProductos">0</span></h2>
-                <img id="carrito" src="../assets/img/carrito.png" alt="Carrito de compras" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            </div>
-          </header>
-             <!-- carrito con Bootstrap-->
-    <section class="carritoGrid">
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-          <h2 class="tituloCarrito">Productos en carrito:</h2>
-            <button id="btnSeguirComprando" type="button" class="btn btn-success" data-bs-dismiss="offcanvas"> Seguir Comprando </button>
-      </div>
-      <div class="offcanvas-body ocultar" id="carritoMostrar">
-      </div>
-      <div class="ordenTotal">
-        <h3 class="total ocultar">Total: $ <span id="totalCarrito"></span></h3>
-      </div>
-        <div class="botonesCarrito2 ocultar">
-          <a href="#" id="botonComprar" class="btn btn-success btnComprar ocultar">PAGAR</a>
-          <img src="../assets/img/vaciar.png" id="vaciar" alt="">
+          <div class="carritoFlex ocultar">
+            <h2><span id="cantidadProductos">0</span></h2>
+            <img id="carrito" src="../assets/img/carrito.png" alt="Carrito de compras" class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         </div>
-      </div>
-      </section>
-      </section>
+         <!-- carrito con Bootstrap-->
+<section class="carritoGrid">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+      <h2 class="tituloCarrito">Productos en carrito:</h2>
+        <button id="btnSeguirComprando" type="button" class="btn btn-success" data-bs-dismiss="offcanvas"> Seguir Comprando </button>
+  </div>
+  <div class="offcanvas-body ocultar" id="carritoMostrar">
+  </div>
+  <div class="ordenTotal">
+    <h3 class="total ocultar">Total: $ <span id="totalCarrito"></span></h3>
+  </div>
+    <div class="botonesCarrito2 ocultar">
+      <a href="#" id="botonComprar" class="btn btn-success btnComprar ocultar">PAGAR</a>
+      <img src="../assets/img/vaciar.png" id="vaciar" alt="limpiar Carrito">
+    </div>
+  </div>
+  </section>
+  </nav>
+  </header>
       <main class="container-fluid cardMain">
-        <h1 class="centrar">Nuestros Productos</h1>
+        <h1 class="centrar text-white">Nuestros Productos</h1>
         <!-- Seccion de formularios de busqueda por descripción, ordenar según precios y boton de carrito -->
         <!-- formularios de busqueda por descripción -->
         <section class="botonesHtml">
@@ -88,33 +87,8 @@
                 </select>
                </form>
             </div>  
-        <!-- grid para dividir el main en dos Filtos y catalogo
-        <div class="grid-container borroso">
-            <-- filtros
-            <section class="seccionFiltros">
-                <h4>Selecciona tu tipo preferido</h4>
-                <div id="filtrosMarca"><div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">Capsulas Nespresso</label>
-        </div>
-        <div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">Capsulas Dolce Gusto</label>
-        </div>
-        <div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">Café en Granos</label>
-        </div>
-        <div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">Cafe Molido</label>
-        </div>
-        <div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">Accesorios</label>
-        </div>
-        </div>
-      </section -->
+        <!-- grid para dividir el main en dos Filtos y catalogo-->
+        </section>
             <!-- catalogo -->
             <section id="seccionCatalogo">
                 <div id="divCatalogo" class="row">
@@ -154,7 +128,7 @@
                     </div>
                 </div>
             </div>
-        
+            
             <div class="card mb-3" style="max-width:700px;">
                 <div class="row g-0">
                     <div class="col-md-5">
@@ -371,7 +345,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <h4>Dolce Gusto - Lungo</h4>
+                            <h4>Dolce Gusto - Leche</h4>
                             <p><b>Marca:</b> Viaggio</p>
                             <p><b>Total disponibles:</b>1</p>
                             <p><b>Precio: $ 1670</b></p>
@@ -390,7 +364,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <h4>Dulce Gusto - Lungo</h4>
+                            <h4>Dulce Gusto - Ristretto</h4>
                             <p><b>Marca:</b> Viaggio</p>
                             <p><b>Total disponibles:</b>0</p>
                             <p><b>Precio: $ 2000</b></p>
@@ -409,7 +383,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <h4>Kit 5 Dolce Gusto </h4>
+                            <h4>Kit pack 5 Dolce Gusto </h4>
                             <p><b>Marca:</b> Viaggio</p>
                             <p><b>Total disponibles:</b>60</p>
                             <p><b>Precio: $ 31327</b></p>
@@ -542,7 +516,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
-                            <h4>Cafe en grano - Etiopia</h4>
+                            <h4>Cafe en granos - Etiopia</h4>
                             <p><b>Marca:</b>Viaggio</p>
                             <p><b>Total disponibles:</b>8</p>
                             <p><b>Precio: $ 6195</b></p>
@@ -783,32 +757,13 @@
         </section>
         </div>
     </main>
-      <section>
-        <h2>Carrito</h2>
-        <div id="carrito">
-          <!--Prodcutos del carrito-->
-        </div>
-      </section>
-</body>
-    <footer class="colorNav text-white piePagina borroso">
-        <div class="row">
-          <div class="col-4 alinear">
-            <a href=""><i class="ri-instagram-line icon"></i></a>
-    
-          </div>
-          <div class="col-4 alinear">
-            <a href=""><i class="ri-facebook-circle-line icon"></i></a>
-            
-          </div>
-          <div class="col-4 alinear">
-            <a href=""><i class="ri-whatsapp-line icon"></i></a>
-            
-          </div>
-        </div>
+
 </div>
-</footer>
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
+</body>
 </html>
