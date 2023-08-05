@@ -144,7 +144,7 @@ let productos=[];
 const categoriaSeleccionada = "MLA411823";
 const limiteProductos =30;
 async function apiProductosDeMercadoLibre(categoria = categoriaSeleccionada) {
-        const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoria}&limit=${limiteProductos}&offset=0&q=cafe`);
+    const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoriaSeleccionada}&limit=${limiteProductos}&offset=0`);
         const api = await response.json();
         const productosMercadoLibre = api.results;
         console.log(productosMercadoLibre);
@@ -357,4 +357,5 @@ function masVendidos(productos) {
     cargarCatalogo(productosMasVendidos.slice(0,5));
     console.log(productosMasVendidos.slice(0,5));
 }
+
 
