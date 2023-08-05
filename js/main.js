@@ -167,7 +167,7 @@ async function apiProductosDeMercadoLibre(categoria = categoriaSeleccionada) {
 apiProductosDeMercadoLibre().then((productosapi) => {
     mostrarLoading();
     cargarCatalogo(productosapi);
-    filtrosMarca(productosapi);
+
 });
 // Busca un producto por ID, si lo encuentra lo retorna en forma de objeto
 function registroPorId(id){
@@ -304,29 +304,7 @@ inputBuscar.addEventListener('keyup',(event)=>{
 // Cargar los resultados de la busqueda
 cargarCatalogo(resultados);
 
-// función para generar las marcas de los alimentos del catalogo para luego realizar un filtro sobre dichas marcas
-function filtrosMarca(productos) {
-    // Array para almacenar las marcas de productos agregados
-    const marcasAgregadas = [];
-    // ciclo for para buscar las marcas de los productos del catalogo y no repetir ninguna
-    for (const alimento of productos) {
-        if (!marcasAgregadas.includes(alimento.marca)) {
-        divFiltrosMarca.innerHTML +=  
-        `<div>
-            <input type="checkbox" name="check" id="check">
-            <label for="check">${alimento.marca}</label>
-        </div>`;
-        // Agregar el nombre del producto al array de nombres agregados
-        marcasAgregadas.push(alimento.marca);
-        }
-    }
-}
-// Evento para desplegar los filtros generados en función filtrosMarca
-botonFiltros.addEventListener("click", (event) => {
-    event.preventDefault();
-    document.querySelector(".seccionFiltros").classList.toggle("desplegarFiltros");
-});
-// función para filtrar los productos cargagos con la funcion asincrónica "cargarCatalogo" según los filtros obtenidos por marca
+/// función para filtrar los productos cargagos con la funcion asincrónica "cargarCatalogo" según los filtros obtenidos por marca
 function filtrarCatalogo() {
     const checkboxes = divFiltrosMarca.querySelectorAll('input[type="checkbox"]');
     // Se usa el metodo Array.from() para convertir los resultados obtenidos en un array de elementos
@@ -346,8 +324,7 @@ function filtrarCatalogo() {
         cargarCatalogo(productosFiltrados); 
     }
 }
-// Evento para llamar la función de filtrar el catálogo según marca
-divFiltrosMarca.addEventListener('change', filtrarCatalogo);
+
 
 // Funciones para ordenar los productos del catálogo según su precio
 function mostrarProductosPorPrecioAscendente(productos) {
@@ -380,19 +357,4 @@ function masVendidos(productos) {
     cargarCatalogo(productosMasVendidos.slice(0,5));
     console.log(productosMasVendidos.slice(0,5));
 }
-// Evento para llamar a la función de productos mas vendidos
-btnMasVendidos.addEventListener('click', (event) => {
-    event.preventDefault();
-    masVendidos(productos);
-});
-
-const todosLosProductos= document.querySelector('#btnTodos');
-// Evento para volver llamar a la función original de cargarCatalogo
-btnTodos.addEventListener('click',(event) =>{
-    event.preventDefault();
-    mostrarLoading();
-    cargarCatalogo(productos)
-});
-
-
 
